@@ -1,0 +1,12 @@
+const data=getData();
+const skillsGrid=document.getElementById("skillsGrid");
+skillsGrid.innerHTML=data.skills.map((s,i)=>`<article class="skill-card reveal"><span>0${i+1}</span><h3>${s.group}</h3><div>${s.items.map(x=>`<b>${x}</b>`).join("")}</div></article>`).join("");
+document.getElementById("projectsGrid").innerHTML=data.projects.map((p,i)=>`<article class="project-card reveal"><div class="project-top"><span>${p.tag}</span><small>${p.year}</small></div><h3>${p.title}</h3><p>${p.desc}</p><div class="project-bottom"><span>${p.stack}</span><a href="${p.link}">View ↗</a></div></article>`).join("");
+document.getElementById("experienceList").innerHTML=data.experience.map((x,i)=>`<article class="timeline-item reveal"><div class="dot"></div><div class="period">${x.period}</div><div><h3>${x.role}</h3><h4>${x.company}</h4><p>${x.desc}</p></div></article>`).join("");
+document.getElementById("achievementsList").innerHTML=data.achievements.map((a,i)=>`<article class="achievement reveal"><span>0${i+1}</span><div><small>${a.meta}</small><h3>${a.title}</h3><p>${a.desc}</p></div><b>↗</b></article>`).join("");
+document.getElementById("emailLink").textContent=data.profile.email+" ↗";document.getElementById("emailLink").href="mailto:"+data.profile.email;
+const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});document.querySelectorAll(".reveal").forEach(x=>observer.observe(x));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",e=>{const el=document.querySelector(a.getAttribute("href"));if(el){e.preventDefault();el.scrollIntoView({behavior:"smooth"})}}));
+const cur=document.querySelector(".cursor"), fol=document.querySelector(".cursor-follower");window.addEventListener("mousemove",e=>{cur.style.left=e.clientX+"px";cur.style.top=e.clientY+"px";fol.animate({left:e.clientX+"px",top:e.clientY+"px"},{duration:500,fill:"forwards"})});
+document.querySelectorAll("a,button,.project-card").forEach(el=>{el.addEventListener("mouseenter",()=>document.body.classList.add("hovering"));el.addEventListener("mouseleave",()=>document.body.classList.remove("hovering"))});
+document.querySelector(".menu").onclick=()=>document.querySelector("nav").classList.toggle("open");

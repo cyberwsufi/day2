@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Portfolio CMS</title><link rel="stylesheet" href="css/admin.css"></head>
+<body><div class="admin-shell"><aside><div class="brand">SP<span>.</span> CMS</div><p>PORTFOLIO CONTROL</p><button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="skills">Skills</button><button class="tab" data-tab="projects">Projects</button><button class="tab" data-tab="experience">Experience</button><button class="tab" data-tab="achievements">Achievements</button><a href="index.html">← View portfolio</a></aside>
+<main><header><div><span class="eyebrow">CONTROL ROOM</span><h1>Make your portfolio<br><i>stay alive.</i></h1></div><button id="reset" class="danger">Reset demo data</button></header>
+<section id="overview" class="panel active"><div class="cards"><div><small>SKILLS</small><b id="countSkills">0</b></div><div><small>PROJECTS</small><b id="countProjects">0</b></div><div><small>EXPERIENCE</small><b id="countExp">0</b></div><div><small>ACHIEVEMENTS</small><b id="countAch">0</b></div></div><div class="notice">Changes are saved in your browser using <strong>localStorage</strong>. No backend is required. Use this as a zero-cost static CMS.</div></section>
+<section id="skills" class="panel"><div class="panel-title"><h2>Skills</h2><button onclick="addSkill()">+ Add skill</button></div><div id="skillsEditor"></div></section>
+<section id="projects" class="panel"><div class="panel-title"><h2>Projects</h2><button onclick="addProject()">+ Add project</button></div><div id="projectsEditor"></div></section>
+<section id="experience" class="panel"><div class="panel-title"><h2>Experience</h2><button onclick="addExperience()">+ Add experience</button></div><div id="experienceEditor"></div></section>
+<section id="achievements" class="panel"><div class="panel-title"><h2>Achievements</h2><button onclick="addAchievement()">+ Add achievement</button></div><div id="achievementsEditor"></div></section>
+</main></div><script src="js/data.js"></script><script src="js/admin.js"></script></body></html>
